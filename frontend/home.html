@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Astronomy</title>
+  <link rel="icon" href="isaklogo.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #eee;
+    }
+
+    .container {
+      width: 95%;
+      margin: 20px auto;
+      background: url('peakpx.jpg') no-repeat center center;
+      background-size: cover;
+      
+      image-rendering: auto;
+      border: 1px solid #ccc;
+      min-height: 90vh;
+      color: white;
+      position: relative;
+    }
+
+    /* Full page background fix */
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: url('peakpx.jpg') no-repeat center center fixed;
+      background-size: auto; /* zooms OUT instead of cropping */
+      background-color: black; /* fills empty space */
+    }
+
+    .container {
+      width: 100%;
+      margin: 0;
+      background: transparent;
+      border: none;
+      min-height: 100vh;
+      color: white;
+      position: relative;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo img {
+      width: 50px;
+    }
+
+    .logo span {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: 2px solid #b983ff;
+      background: transparent;
+      color: #b983ff;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      margin-top: 150px;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 14px;
+      max-width: 800px;
+      margin: auto;
+      opacity: 0.9;
+    }
+
+    /* Decorative stars */
+    .star {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: rgba(100, 100, 255, 0.2);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+
+    .star.left {
+      top: 150px;
+      left: 40px;
+    }
+
+    .star.right {
+      bottom: 120px;
+      right: 60px;
+    }
+
+    /* Footer */
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 40px;
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+    .instagram {
+      border: 1px solid white;
+
+      border-radius: 50%;
+      padding: 5px 8px;
+      display: inline-block;
+      margin-top: 5px;
+      
+    }
+
+    body {
+  background: url('peakpx.jpg') no-repeat center center fixed;
+  background-size: 110%; /* slightly zoomed for sharpness */
+  background-color: black;
+  animation: bgMove 80s linear infinite;
+}
+
+@keyframes bgMove {
+  0% { background-position: center top; }
+  50% { background-position: center bottom; }
+  100% { background-position: center top; }
+}
+  .hero h1 {
+  animation: fadeUp 1.5s ease forwards;
+}
+
+.hero p {
+  animation: fadeUp 2s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.star {
+  animation: float 6s ease-in-out infinite, glow 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #b983ff;
+  color: black;
+  box-shadow: 0 0 20px #b983ff;
+}
+
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #b983ff;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="navbar">
+      <div class="logo">
+        <img src="isaklogo.png" alt="logo">
+        <span>PROJECT ASTRONOMY</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="home.html">HOME</a>
+        <a href="map.html">WEATHER MAP</a>
+        <button class="btn" onclick="location.href='dashboard.html'">DASHBOARD</button>
+      </div>
+    </div>
+
+    <div class="star left"></div>
+    <div class="star right"></div>
+
+    <div class="hero">
+      <h1>PROJECT ASTRONOMY</h1>
+      <p>
+        Prototype application to track local light pollution data, celestial object trajectories and weather to aid astronomy observation.
+      </p>
+    </div>
+
+    <div class="footer">
+      <div>
+        <div>Connect</div>
+<a href="https://www.instagram.com/astronomy_cas" target="_blank" class="instagram">IG</a></div>
+      <div>
+        © 2026 Project Astronomy. All rights reserved
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
