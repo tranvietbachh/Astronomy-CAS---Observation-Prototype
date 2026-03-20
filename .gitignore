@@ -3,4 +3,4 @@ __pycache__/
 .cache/
 *.pyc
 .env*
-*.tif
+backend/data/night_lights.tif
