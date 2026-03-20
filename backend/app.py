@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, request
 from features.weather import get_weather
+from features.light_pollution import get_light_pollution
+
 import requests
 
 app = Flask(__name__)
@@ -33,7 +35,21 @@ def weather():
 
 #@app.route("/api/object")
 
-#@app.route("/api/lightpollution")
+@app.route("/api/lightpollution")
+def light_pollution():
+    lat = request.args.get("lat", type=float)
+    lon = request.args.get("lon", type=float)
+
+    if lat is None or lon is None:
+        return jsonify({"error": "Missing or invalid coordinates"}), 400
+
+    result = get_light_pollution(lat, lon)
+
+    if "error" in result:
+        return jsonify(result), 400
+
+    return jsonify(result)
+
 
 
 if __name__ == "__main__":
