@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link rel="icon" href="isaklogo.png" type="image/x-icon">
-  <title>Dashboard  </title>
+  <link rel="icon" href="./isaklogo.png" type="image/x-icon">
+  <title>Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -14,49 +15,36 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    body {
-      background: #eee;
-    }
-
-    .container {
-      width: 95%;
-      margin: 20px auto;
-      background: url('peakpx.jpg') no-repeat center center;
-      background-size: cover;
-      image-rendering: auto;
-      border: 1px solid #ccc;
-      min-height: 90vh;
-      color: white;
-      position: relative;
-    }
-
-    /* Full page background fix */
     html, body {
       height: 100%;
     }
 
     body {
-      background: url('peakpx.jpg') no-repeat center center fixed;
-      background-color: black; /* fills empty space */
+      background: url('./peakpx.jpg') no-repeat center center fixed;
+      background-size: 110%;
+      background-color: black;
+      color: white;
+      animation: bgMove 80s linear infinite;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: center top; }
+      50% { background-position: center bottom; }
+      100% { background-position: center top; }
     }
 
     .container {
       width: 100%;
-      margin: 0;
-      background: transparent;
-      border: none;
       min-height: 100vh;
-      color: white;
       position: relative;
     }
 
-    /* Navbar */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0, 0, 0, 0.4);
     }
 
     .logo {
@@ -85,148 +73,6 @@
       color: white;
       font-size: 14px;
       letter-spacing: 1px;
-    }
-
-    .btn {
-      padding: 10px 20px;
-      border-radius: 20px;
-      border: 2px solid #b983ff;
-      background: transparent;
-      color: #b983ff;
-      cursor: pointer;
-    }
-
-    /* Hero */
-    .hero {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 60vh;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .main-actions {
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .main-btn {
-      padding: 18px 40px;
-      font-size: 16px;
-      border-radius: 30px;
-      border: 2px solid #b983ff;
-      background: rgba(0,0,0,0.6);
-      color: #b983ff;
-      cursor: pointer;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-    }
-
-    .main-btn:hover {
-      background: #b983ff;
-      color: black;
-      box-shadow: 0 0 25px #b983ff;
-      transform: scale(1.05);
-    }
-
-    .hero h1 {
-      font-size: 40px;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 14px;
-      max-width: 800px;
-      margin: auto;
-      opacity: 0.9;
-    }
-
-    /* Decorative stars */
-    .star {
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      background: rgba(100, 100, 255, 0.2);
-      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    }
-
-    .star.left {
-      top: 150px;
-      left: 40px;
-    }
-
-    .star.right {
-      bottom: 120px;
-      right: 60px;
-    }
-
-    /* Footer */
-    .footer {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 40px;
-      font-size: 12px;
-      opacity: 0.8;
-    }
-
-    .instagram {
-      border: 1px solid white;
-      border-radius: 50%;
-      padding: 5px 8px;
-      display: inline-block;
-      margin-top: 5px;
-    }
-
-  
-
-    /* Animations */
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(10deg); }
-      100% { transform: translateY(0px) rotate(0deg); }
-    }
-
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
-    }
-
-    .hero h1 {
-      animation: fadeIn 1.5s ease forwards;
-    }
-
-    .hero p {
-      animation: fadeIn 2s ease forwards;
-    }
-
-    .star {
-      animation: float 6s ease-in-out infinite, twinkle 3s ease-in-out infinite;
-    }
-
-    .btn {
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #b983ff;
-      color: black;
-      box-shadow: 0 0 15px #b983ff;
-    }
-
-    .nav-links a {
       position: relative;
     }
 
@@ -245,131 +91,6 @@
       width: 100%;
     }
 
-  </style>
-</head>
-<body>
-  <div class="container">
-
-    <div class="navbar">
-      <div class="logo">
-        <img src="isaklogo.png" alt="logo">
-        <span>PROJECT ASTRONOMY</span>
-      </div>
-
-      <div class="nav-links">
-        <a href="home.html">HOME</a>
-        <a href="map.html">WEATHER MAP</a>
-       <button class="btn" onclick="location.href='dashboard.html'">DASHBOARD</button>
-      </div>
-    </div>
-
-    <div class="star left"></div>
-    <div class="star right"></div>
-
-    
-    </div>
-
-    <div class="footer">
-      <div>
-        <div>Connect</div>
-        <a href="https://www.instagram.com/astronomy_cas" target="_blank" class="instagram">IG</a></div>
-      </div>
-      <div>
-        © 2026 Project Astronomy. All rights reserved
-      </div>
-    </div>
-
-      <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Weather Map</title>
-  <link rel="icon" href="isaklogo.png" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background: #eee;
-    }
-
-    .container {
-      width: 95%;
-      margin: 20px auto;
-      background: url('peakpx.jpg') no-repeat center center;
-      background-size: cover;
-      
-      image-rendering: auto;
-      border: 1px solid #ccc;
-      min-height: 90vh;
-      color: white;
-      position: relative;
-    }
-
-    /* Full page background fix */
-    html, body {
-      height: 100%;
-    }
-
-    body {
-      background: url('peakpx.jpg') no-repeat center center fixed;
-      background-size: auto; /* zooms OUT instead of cropping */
-    
-    }
-
-    .container {
-      width: 100%;
-      margin: 0;
-      background: transparent;
-      border: none;
-      min-height: 100vh;
-      color: white;
-      position: relative;
-    }
-
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background: rgba(0,0,0,0.4);
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .logo img {
-      width: 50px;
-    }
-
-    .logo span {
-      font-size: 20px;
-      font-weight: 600;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: white;
-      font-size: 14px;
-      letter-spacing: 1px;
-    }
-
     .btn {
       padding: 10px 20px;
       border-radius: 20px;
@@ -377,35 +98,22 @@
       background: transparent;
       color: #b983ff;
       cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    /* Hero */
-    .hero {
-      text-align: center;
-      margin-top: 150px;
-      padding: 0 20px;
+    .btn:hover {
+      background: #b983ff;
+      color: black;
+      box-shadow: 0 0 20px #b983ff;
     }
 
-    .hero h1 {
-      font-size: 40px;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 14px;
-      max-width: 800px;
-      margin: auto;
-      opacity: 0.9;
-    }
-
-    /* Decorative stars */
     .star {
       position: absolute;
       width: 120px;
       height: 120px;
       background: rgba(100, 100, 255, 0.2);
       clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      animation: float 6s ease-in-out infinite, glow 3s ease-in-out infinite;
     }
 
     .star.left {
@@ -414,189 +122,306 @@
     }
 
     .star.right {
-      bottom: 120px;
+      top: 180px;
       right: 60px;
     }
 
-    /* Footer */
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+
+    @keyframes glow {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    .dashboard-wrapper {
+      max-width: 1200px;
+      margin: 60px auto 0;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .top-panel {
+      background: rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      padding: 25px;
+      backdrop-filter: blur(10px);
+      margin-bottom: 30px;
+    }
+
+    .top-panel h1 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .top-panel p {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .controls select {
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 2px solid #b983ff;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .controls select option {
+      color: black;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 22px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      min-height: 170px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 10px 30px rgba(185,131,255,0.25);
+    }
+
+    .card h2 {
+      font-size: 20px;
+      margin-bottom: 14px;
+      color: #e9d8ff;
+    }
+
+    .card p {
+      font-size: 14px;
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .status-text {
+      margin-top: 18px;
+      font-size: 14px;
+      color: #ddd;
+    }
+
     .footer {
-      position: absolute;
-      bottom: 20px;
+      margin-top: 40px;
       width: 100%;
       display: flex;
       justify-content: space-between;
-      padding: 0 40px;
+      padding: 0 40px 20px 40px;
       font-size: 12px;
       color: #eee;
-      opacity: 0.8;
+      opacity: 0.85;
     }
 
     .instagram {
-      border: 1px solid rgb(255, 255, 255);
+      border: 1px solid white;
       border-radius: 50%;
       padding: 5px 8px;
       display: inline-block;
       margin-top: 5px;
+      color: white;
+      text-decoration: none;
     }
 
-    body {
-  background: url('peakpx.jpg') no-repeat center center fixed;
-  background-size: 110%; /* slightly zoomed for sharpness */
-  background-color: black;
-  animation: bgMove 80s linear infinite;
-}
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
 
-@keyframes bgMove {
-  0% { background-position: center top; }
-  50% { background-position: center bottom; }
-  100% { background-position: center top; }
-}
-  .hero h1 {
-  animation: fadeUp 1.5s ease forwards;
-}
+      .footer {
+        flex-direction: column;
+        gap: 10px;
+      }
 
-.hero p {
-  animation: fadeUp 2s ease forwards;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.star {
-  animation: float 6s ease-in-out infinite, glow 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(10deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
-}
-
-@keyframes glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
-}
-
-
-.btn {
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  background: #b983ff;
-  color: black;
-  box-shadow: 0 0 20px #b983ff;
-}
-
-.nav-links a {
-  position: relative;
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 0%;
-  height: 2px;
-  background: #b983ff;
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
+      .top-panel h1 {
+        font-size: 28px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-
     <div class="navbar">
       <div class="logo">
-        <img src="isaklogo.png" alt="logo">
+        <img src="./isaklogo.png" alt="logo">
         <span>PROJECT ASTRONOMY</span>
       </div>
 
       <div class="nav-links">
         <a href="home.html">HOME</a>
         <a href="map.html">WEATHER MAP</a>
-        <button class="btn">DASHBOARD</button>
+        <button class="btn" onclick="location.href='dashboard.html'">DASHBOARD</button>
       </div>
     </div>
 
     <div class="star left"></div>
     <div class="star right"></div>
 
-    <div class="hero">
-    
+    <div class="dashboard-wrapper">
+      <div class="top-panel">
+        <h1>Observation Dashboard</h1>
+        <p>Use your selected map coordinates to retrieve live observation conditions.</p>
+        <p><strong>Latitude:</strong> <span id="latText">Not selected</span></p>
+        <p><strong>Longitude:</strong> <span id="lonText">Not selected</span></p>
+
+        <div class="controls">
+          <select id="target">
+            <option value="moon">Moon</option>
+            <option value="mars">Mars</option>
+            <option value="jupiter">Jupiter</option>
+            <option value="saturn">Saturn</option>
+            <option value="venus">Venus</option>
+            <option value="sun">Sun</option>
+          </select>
+
+          <button class="btn" onclick="loadObservation()">Load Observation Data</button>
+        </div>
+
+        <p class="status-text" id="statusText">Choose an object and load the latest data.</p>
+      </div>
+
+      <div class="dashboard">
+        <div class="card">
+          <h2>Weather</h2>
+          <p id="weatherTemp">Temperature: --</p>
+          <p id="weatherHumidity">Humidity: --</p>
+          <p id="weatherCloud">Cloud Cover: --</p>
+          <p id="weatherPrecip">Precipitation: --</p>
+          <p id="weatherDay">Day/Night: --</p>
+        </div>
+
+        <div class="card">
+          <h2>Light Pollution</h2>
+          <p id="lightValue">Brightness Value: --</p>
+          <p> ~ 0 to 5 is low artificial light</p>
+          <p> For reference, Tokyo can reach around 100</p>
+          <p> *Units of spectral radiance, defined as nW/cm2/sr</p>
+
+
+        </div>
+
+        <div class="card">
+          <h2>Celestial Object</h2>
+          <p id="objectTarget">Target: --</p>
+          <p id="objectAzimuth">Azimuth: --</p>
+          <p id="objectElevation">Elevation: --</p>
+          <p id="objectTime">Timestamp (UTC): --</p>
+        </div>
+
+        <div class="card">
+          <h2>Observation Summary</h2>
+          <p id="summaryDirection">Direction: --</p>
+          <p id="summaryNote">Note: --</p>
+        </div>
+      </div>
     </div>
 
     <div class="footer">
       <div>
         <div>Connect</div>
-        <div class="instagram">IG</div>
+        <a href="https://www.instagram.com/astronomy_cas" target="_blank" class="instagram">IG</a>
       </div>
       <div>
         © 2026 Project Astronomy. All rights reserved
       </div>
     </div>
-
   </div>
 
-<!-- Dashboard Section -->
-    <div class="dashboard">
-      <div class="card">Weather<br><span>Clear skies, 12°C</span></div>
-      <div class="card">Light Pollution<br><span>Low (Bortle 3)</span></div>
-      <div class="card">Overall Score<br><span>8.5 / 10</span></div>
-      <div class="card">Positioning<br><span>Optimal view South-East</span></div>
-    </div>
+<script>
+  const lat = localStorage.getItem("selectedLat");
+  const lon = localStorage.getItem("selectedLon");
 
-  </div>
+  document.getElementById("latText").textContent = lat || "Not selected";
+  document.getElementById("lonText").textContent = lon || "Not selected";
 
-  <style>
-    .dashboard {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      display: grid;
-      grid-template-columns: repeat(4, 220px);
-      gap: 25px;
+  function getDirectionFromAzimuth(azimuth) {
+    if (azimuth >= 337.5 || azimuth < 22.5) return "North";
+    if (azimuth < 67.5) return "North-East";
+    if (azimuth < 112.5) return "East";
+    if (azimuth < 157.5) return "South-East";
+    if (azimuth < 202.5) return "South";
+    if (azimuth < 247.5) return "South-West";
+    if (azimuth < 292.5) return "West";
+    return "North-West";
+  }
+
+  async function loadObservation() {
+    const target = document.getElementById("target").value;
+    const statusText = document.getElementById("statusText");
+
+    if (!lat || !lon) {
+      statusText.textContent = "No coordinates selected. Open the map first and click a location.";
+      return;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.6);
-      border-radius: 20px;
-      padding: 25px;
-      text-align: center;
-      font-size: 18px;
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    statusText.textContent = "Loading observation data...";
+
+    try {
+      const response = await fetch(`http://127.0.0.1:5000/api/observation?target=${target}&lat=${lat}&lon=${lon}`);
+      const data = await response.json();
+
+      if (data.error) {
+        statusText.textContent = `Error: ${data.error}`;
+        return;
+      }
+
+      document.getElementById("weatherTemp").textContent = `Temperature: ${data.weather.temperature} °C`;
+      document.getElementById("weatherHumidity").textContent = `Humidity: ${data.weather.humidity} %`;
+      document.getElementById("weatherCloud").textContent = `Cloud Cover: ${data.weather.cloud_cover} %`;
+      document.getElementById("weatherPrecip").textContent = `Precipitation: ${data.weather.precipitation}`;
+      document.getElementById("weatherDay").textContent = `Day/Night: ${data.weather.is_day === 1 ? "Day" : "Night"}`;
+
+      document.getElementById("lightValue").textContent = `Brightness Value: ${data.light_pollution.light_pollution}`;
+
+      document.getElementById("objectTarget").textContent = `Target: ${data.object.target}`;
+      document.getElementById("objectAzimuth").textContent = `Azimuth: ${data.object.azimuth}°`;
+      document.getElementById("objectElevation").textContent = `Elevation: ${data.object.elevation}°`;
+      document.getElementById("objectTime").textContent = `Timestamp (UTC): ${data.object.timestamp_utc}`;
+
+      const direction = getDirectionFromAzimuth(data.object.azimuth);
+
+      let note = "";
+      if (data.object.elevation > 20) {
+        note = `${data.object.target} is well above the horizon and visible.`;
+      } else if (data.object.elevation > 0) {
+        note = `${data.object.target} is just above the horizon.`;
+      } else {
+        note = `${data.object.target} is currently below the horizon and not visible.`;
+      }
+
+      document.getElementById("summaryDirection").textContent = `Direction: ${direction}`;
+      document.getElementById("summaryNote").textContent = `Note: ${note}`;
+
+      statusText.textContent = "Observation data loaded successfully.";
+    } catch (error) {
+      statusText.textContent = `Request failed: ${error}`;
     }
-
-    .card span {
-      display: block;
-      margin-top: 10px;
-      font-size: 14px;
-      opacity: 0.8;
-    }
-
-    .card:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 10px 30px rgba(185,131,255,0.3);
-    }
-
-
-  </style>
-
+  }
+</script>
 </body>
 </html>

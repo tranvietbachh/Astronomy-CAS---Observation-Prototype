@@ -2,6 +2,7 @@ import requests
 import re
 from datetime import datetime, timedelta, timezone
 
+
 def get_celestial_position(target_name, lat, lon):
     targets = {
         "moon": "301",
@@ -20,46 +21,57 @@ def get_celestial_position(target_name, lat, lon):
     start_time = now_utc.strftime("%Y-%m-%d %H:%M")
     stop_time = (now_utc + timedelta(minutes=1)).strftime("%Y-%m-%d %H:%M")
 
-    url = "https://ssd-api.jpl.nasa.gov/horizons.api"
+    url = "https://ssd.jpl.nasa.gov/api/horizons.api"
     params = {
         "format": "json",
-        "COMMAND": target_id,
-        "CENTER": "coord@399",
-        "COORD_TYPE": "GEODETIC",
-        "SITE_COORD": f"{lon},{lat},0",
-        "MAKE_EPHEM": "YES",
-        "EPHEM_TYPE": "OBSERVER",
-        "QUANTITIES": "4",
-        "START_TIME": start_time,
-        "STOP_TIME": stop_time,
-        "STEP_SIZE": "1m",
-        "CSV_FORMAT": "YES"
+        "COMMAND": f"'{target_id}'",
+        "CENTER": "'coord@399'",
+        "COORD_TYPE": "'GEODETIC'",
+        "SITE_COORD": f"'{lon},{lat},0'",
+        "MAKE_EPHEM": "'YES'",
+        "EPHEM_TYPE": "'OBSERVER'",
+        "QUANTITIES": "'4'",
+        "START_TIME": f"'{start_time}'",
+        "STOP_TIME": f"'{stop_time}'",
+        "STEP_SIZE": "'1m'",
+        "CSV_FORMAT": "'YES'"
     }
 
-    response = requests.get(url, params=params, timeout=20)
-    print("Status:", response.status_code)
-    print("Raw response:", response.text[:1000])
-
-    response.raise_for_status()
-
     try:
+        response = requests.get(url, params=params, timeout=20)
+        response.raise_for_status()
         data = response.json()
-    except requests.exceptions.JSONDecodeError:
-        return {"error": "API did not return JSON", "raw_response": response.text[:1000]}
-
-    raw_text = data.get("result", "")
-    search = re.search(r"\$\$SOE\s*(.*?)\s*\$\$EOE", raw_text, re.DOTALL)
-
-    if search:
-        data_line = search.group(1).strip().split(",")
-
+    except Exception as e:
         return {
-            "target": target_name.capitalize(),
-            "azimuth": float(data_line[3].strip()),
-            "elevation": float(data_line[4].strip()),
-            "timestamp_utc": start_time
+            "error": str(e),
+            "raw_text": response.text[:1000] if "response" in locals() else None
         }
 
-    return {"error": "Could not extract coordinates from NASA data.", "result": raw_text[:1000]}
+    raw_text = data.get("result", "")
+    match = re.search(r"\$\$SOE\s*(.*?)\s*\$\$EOE", raw_text, re.DOTALL)
+
+    if not match:
+        return {
+            "error": "Could not extract coordinates from NASA data.",
+            "preview": raw_text[:1500]
+        }
+
+    first_line = match.group(1).strip().splitlines()[0]
+    parts = [x.strip() for x in first_line.split(",")]
+
+    try:
+        return {
+            "target": target_name.capitalize(),
+            "azimuth": float(parts[3]),
+            "elevation": float(parts[4]),
+            "timestamp_utc": start_time
+        }
+    except Exception as e:
+        return {
+            "error": f"Parsing failed: {e}",
+            "line": first_line,
+            "parts": parts
+        }
+
 
 print(get_celestial_position("moon", 35, 139))
